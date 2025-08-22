@@ -7,17 +7,18 @@ app.set("view engine", "ejs");
 app.set("views", "./pages");
 
 app.use(express.urlencoded({ extended: true }));
-fruitList = [
-  "apple",
-  "banana",
-  "orange",
-  "grape",
-  "kiwi",
-  "mango",
-  "peach",
-  "pear",
-  "pineapple",
-  "strawberry",
+
+const fruitList = [
+  "papaya",
+  "guava",
+  "lychee",
+  "passion fruit",
+  "dragon fruit",
+  "jackfruit",
+  "star fruit",
+  "rambutan",
+  "durian",
+  "acerola",
 ];
 
 app.get("/", (req, res) => {
@@ -45,7 +46,8 @@ app.post("/add-fruit", (req, res) => {
 });
 
 app.get("/list", async (req, res) => {
-  res.render("fruits", { fruitList });
+  // FIX 2: Changed "fruits" to "list" to match your ejs file name
+  res.render("list", { fruitList });
 });
 
 app.listen(port, () => {
